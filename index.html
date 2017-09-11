@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chess Board</title>
+    <link rel="stylesheet" href="css/background-controller.css">
+    <link rel="stylesheet" type="text/css" href="css/chess-board-controller.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
+
+
+    <script type="text/javascript" rel="script" src="js/jquery-3.2.0.min.js"></script>
+    <script type="text/javascript" rel="script" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" rel="script" src="js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <div id="main-container">
+        <div id="navigation-bar">
+            <h1 class="font-effect-fire-animation">. . . . PickUp Chess . . . .</h1>
+        </div>
+        <div id="button-container">
+            <div id="logo-name"></div>
+            <div id="sub-button-container">
+
+                <div style="position: absolute;top: 20px" class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Player 01</span>
+                    <input id="p01_typing" type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+                </div>
+
+                <!--<input id="p01_typing" type="text">-->
+
+                <div style="position: absolute;top: 80px" class="input-group">
+                    <span class="input-group-addon" id="basic-addon2">Player 02</span>
+                    <input id="p02_typing" type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+                </div>
+
+                <div style="position: absolute;left: 45px;top: 150px"><button type="button" class="btn btn-primary btn-lg" >&nbsp;&nbsp;&nbsp;&nbsp; New Game &nbsp;&nbsp;&nbsp;&nbsp; </button></div>
+                <div style="position: absolute;left: 45px;top: 220px"><button onclick="change_to_3d()" type="button" class="btn btn-primary btn-lg" >&nbsp;&nbsp;&nbsp;&nbsp; 3D Style &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </button></div>
+                <div style="position: absolute;left: 45px;top: 290px"><button onclick="change_to_2d()" type="button" class="btn btn-primary btn-lg" >&nbsp;&nbsp;&nbsp;&nbsp; 2D Style &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </button></div>
+                <div style="position: absolute;text-align: center;left: 40px;top: 360px"><button onclick="rotate_to_black()" type="button" class="btn btn-primary btn-lg" > Rotate to BLACK&nbsp;&nbsp;&nbsp;&nbsp; </button></div>
+                <div style="position: absolute;text-align: center;left: 40px;top: 430px"><button onclick="rotate_to_white()" type="button" class="btn btn-primary btn-lg" > Rotate to WHITE&nbsp;&nbsp;&nbsp;&nbsp; </button></div>
+
+            </div>
+        </div>
+
+        <div id="board-container">
+            <div class="avatar-container">
+                <div class="players" id="player-01">
+                    <div class="players-avatar-container"></div>
+                    <div class="players-name" id="player-01-name"><label id="lbl_player-01"></label></div>
+                    <hr id="hr1">
+                    <div class="players-avatar" id="player-01-avatar"></div>
+                </div>
+                <div class="players" id="player-02">
+                    <div class="players-avatar-container" id="p02ac"></div>
+                    <div class="players-name" id="player-02-name"><label id="lbl_player-02"></label> </div>
+                    <hr id="hr2">
+                    <div class="players-avatar" id="player-02-avatar"></div>
+                </div>
+
+            </div>
+            <div id="border-container">
+                <div id="sub-container">
+                    <div id="row-8" class="row">
+
+                        <div id="cell-white-8A" class="col-md-1 cell"><span id="p-black-castle-1" class="black-piece">&#9820</span></div>
+                        <div id="cell-black-8B" class="col-md-1 cell"><span id="p-black-knight-1" class="black-piece">&#9822</span></div>
+                        <div id="cell-white-8C" class="col-md-1 cell"><span id="p-black-bishop-1" class="black-piece">&#9821</span></div>
+                        <div id="cell-black-8D" class="col-md-1 cell"><span id="p-black-queen" class="black-piece">&#9819</span></div>
+                        <div id="cell-white-8E" class="col-md-1 cell"><span id="p-black-king" class="black-piece">&#9818</span></div>
+                        <div id="cell-black-8F" class="col-md-1 cell"><span id="p-black-bishop-2" class="black-piece">&#9821</span></div>
+                        <div id="cell-white-8G" class="col-md-1 cell"><span id="p-black-knight-2" class="black-piece">&#9822</span></div>
+                        <div id="cell-black-8H" class="col-md-1 cell"><span id="p-black-castle-2" class="black-piece">&#9820</span></div>
+
+                    </div>
+                    <div id="row-7" class="row">
+
+                        <div id="cell-black-7A" class="col-md-1 cell"><span id="p-black-pawn-1" class="black-piece">&#9823</span></div>
+                        <div id="cell-white-7B" class="col-md-1 cell"><span id="p-black-pawn-2" class="black-piece">&#9823</span></div>
+                        <div id="cell-black-7C" class="col-md-1 cell"><span id="p-black-pawn-3" class="black-piece">&#9823</span></div>
+                        <div id="cell-white-7D" class="col-md-1 cell"><span id="p-black-pawn-4" class="black-piece">&#9823</span></div>
+                        <div id="cell-black-7E" class="col-md-1 cell"><span id="p-black-pawn-5" class="black-piece">&#9823</span></div>
+                        <div id="cell-white-7F" class="col-md-1 cell"><span id="p-black-pawn-6" class="black-piece">&#9823</span></div>
+                        <div id="cell-black-7G" class="col-md-1 cell"><span id="p-black-pawn-7" class="black-piece">&#9823</span></div>
+                        <div id="cell-white-7H" class="col-md-1 cell"><span id="p-black-pawn-8" class="black-piece">&#9823</span></div>
+
+                    </div>
+
+                    <div id="row-6" class="row">
+
+                        <div id="cell-white-6A" class="col-md-1 cell"></div>
+                        <div id="cell-black-6B" class="col-md-1 cell"></div>
+                        <div id="cell-white-6C" class="col-md-1 cell"></div>
+                        <div id="cell-black-6D" class="col-md-1 cell"></div>
+                        <div id="cell-white-6E" class="col-md-1 cell"></div>
+                        <div id="cell-black-6F" class="col-md-1 cell"></div>
+                        <div id="cell-white-6G" class="col-md-1 cell"></div>
+                        <div id="cell-black-6H" class="col-md-1 cell"></div>
+
+                    </div>
+                    <div id="row-5" class="row">
+
+                        <div id="cell-black-5A" class="col-md-1 cell"></div>
+                        <div id="cell-white-5B" class="col-md-1 cell"></div>
+                        <div id="cell-black-5C" class="col-md-1 cell"></div>
+                        <div id="cell-white-5D" class="col-md-1 cell"></div>
+                        <div id="cell-black-5E" class="col-md-1 cell"></div>
+                        <div id="cell-white-5F" class="col-md-1 cell"></div>
+                        <div id="cell-black-5G" class="col-md-1 cell"></div>
+                        <div id="cell-white-5H" class="col-md-1 cell"></div>
+
+                    </div>
+
+                    <div id="row-4" class="row">
+
+                        <div id="cell-white-4A" class="col-md-1 cell"></div>
+                        <div id="cell-black-4B" class="col-md-1 cell"></div>
+                        <div id="cell-white-4C" class="col-md-1 cell"></div>
+                        <div id="cell-black-4D" class="col-md-1 cell"></div>
+                        <div id="cell-white-4E" class="col-md-1 cell"></div>
+                        <div id="cell-black-4F" class="col-md-1 cell"></div>
+                        <div id="cell-white-4G" class="col-md-1 cell"></div>
+                        <div id="cell-black-4H" class="col-md-1 cell"></div>
+
+                    </div>
+                    <div id="row-3" class="row">
+
+                        <div id="cell-black-3A" class="col-md-1 cell"></div>
+                        <div id="cell-white-3B" class="col-md-1 cell"></div>
+                        <div id="cell-black-3C" class="col-md-1 cell"></div>
+                        <div id="cell-white-3D" class="col-md-1 cell"></div>
+                        <div id="cell-black-3E" class="col-md-1 cell"></div>
+                        <div id="cell-white-3F" class="col-md-1 cell"></div>
+                        <div id="cell-black-3G" class="col-md-1 cell"></div>
+                        <div id="cell-white-3H" class="col-md-1 cell"></div>
+
+                    </div>
+
+                    <div id="row-2" class="row">
+
+                        <div id="cell-white-2A" class="col-md-1 cell"><span id="p-white-pawn-1" class="white-piece">&#9817</span></div>
+                        <div id="cell-black-2B" class="col-md-1 cell"><span id="p-white-pawn-2" class="white-piece">&#9817</span></div>
+                        <div id="cell-white-2C" class="col-md-1 cell"><span id="p-white-pawn-3" class="white-piece">&#9817</span></div>
+                        <div id="cell-black-2D" class="col-md-1 cell"><span id="p-white-pawn-4" class="white-piece">&#9817</span></div>
+                        <div id="cell-white-2E" class="col-md-1 cell"><span id="p-white-pawn-5" class="white-piece">&#9817</span></div>
+                        <div id="cell-black-2F" class="col-md-1 cell"><span id="p-white-pawn-6" class="white-piece">&#9817</span></div>
+                        <div id="cell-white-2G" class="col-md-1 cell"><span id="p-white-pawn-7" class="white-piece">&#9817</span></div>
+                        <div id="cell-black-2H" class="col-md-1 cell"><span id="p-white-pawn-8" class="white-piece">&#9817</span></div>
+
+                    </div>
+                    <div id="row-1" class="row">
+
+                        <div id="cell-black-1A" class="col-md-1 cell"><span id="p-white-castle-1" class="white-piece">&#9814</span></div>
+                        <div id="cell-white-1B" class="col-md-1 cell"><span id="p-white-knight-1" class="white-piece">&#9816</span></div>
+                        <div id="cell-black-1C" class="col-md-1 cell"><span id="p-white-bishop-1" class="white-piece">&#9815</span></div>
+                        <div id="cell-white-1D" class="col-md-1 cell"><span id="p-white-queen" class="white-piece">&#9813</span></div>
+                        <div id="cell-black-1E" class="col-md-1 cell"><span id="p-white-king" class="white-piece">&#9812</span></div>
+                        <div id="cell-white-1F" class="col-md-1 cell"><span id="p-white-bishop-2" class="white-piece">&#9815</span></div>
+                        <div id="cell-black-1G" class="col-md-1 cell"><span id="p-white-knight-2" class="white-piece">&#9816</span></div>
+                        <div id="cell-white-1H" class="col-md-1 cell"><span id="p-white-castle-2" class="white-piece">&#9814</span></div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div id="footer">
+            <div id="all-right-reserved">@ All Right Reserved 2017</div>
+        </div>
+    </div>
+
+    <script>
+            $("#p01_typing").on("keyup",function(){
+                var value = $("#p01_typing").val();
+                $("#lbl_player-01").text(value);
+            });
+
+            $("#p02_typing").on("keyup",function(){
+                var value = $("#p02_typing").val();
+                $("#lbl_player-02").text(value);
+            });
+    </script>
+
+
+    <script type="text/javascript" rel="script" src="js/controller.js"></script>
+    <script type="text/javascript" rel="script" src="js/button-handler.js"></script>
+
+    <script src="js/pieces-factory.js"> </script>
+</body>
+</html>
