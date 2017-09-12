@@ -1,0 +1,222 @@
+@import "https://fonts.googleapis.com/css?family=Rancho&effect=fire-animation";
+
+h1 {
+    font-family: Arial;
+    font-size: 30px;
+    margin: 35px 0;
+    text-align: center;
+}
+
+div[id*=cell-]{
+    padding: 0px;
+    margin: 0px;
+    height: 65px;
+    width: 65px;
+}
+div[id*=cell-black-]{
+    background-color:#a2703f ;
+}
+
+div[id*=cell-white-]{
+    background-color:#f3cf93 ;
+
+}
+
+div[id*=row-]{
+    height: 65px;
+}
+
+span[id*=p-]{
+    width: 65px;
+    height: 65px;
+    margin-left: 8px;
+    font-size: 50px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.color-path{
+    border: 2px solid #7c8bc4;
+    background-color: rgba(0, 255, 0, 0.4) !important;
+}
+
+#sub-container{
+    position: absolute;
+    top: 6px;
+    left: 21px;
+    width: 522px;
+    height: 522px;
+
+
+}
+
+#border-container{
+    position: absolute;
+    width: 532px;
+    height: 532px;
+    top: 200px;
+    left: 170px;
+    background-color: red;
+}
+
+#board-container{
+    position: absolute;
+    width: 950px;
+    height: 850px;
+    background-color: transparent;
+    left: 230px;
+    top: 90px;
+    perspective: 1000px;
+}
+
+#button-container{
+    position: absolute;
+    width: 280px;
+    height: 610px;
+    left: 1200px;
+    top: 220px;
+    background-color: #333333;
+}
+
+#logo-name{
+    height: 60px;
+    background-color: #563D7C;
+    border-bottom-style: ridge;
+    border-bottom-color: white;
+    border-bottom-width: thin;
+    border-image:linear-gradient(to right,rgba(255,255,255,0) 0,rgba(255,255,255,.3) 33%,rgba(255,255,255,.3) 66%,rgba(255,255,255,0) 100%) 1 stretch;
+}
+
+#sub-button-container{
+    position: absolute;
+    width: 270px;
+    height: 540px;
+    top: 65px;
+    left: 5px;
+}
+
+#player-01-container{
+    position: absolute;
+    width: 270px;
+    height: 50px;
+   /* color: yellow;*/
+    text-align: left;
+    font-size: 25px;
+}
+
+#player-02-container{
+    position: absolute;
+    width: 270px;
+    height: 50px;
+    top: 120px;
+    /*color: yellow;*/
+    text-align: left;
+    font-size: 25px;
+}
+
+
+.avatar-container{
+    position: absolute;
+    width: 850px;
+    height: 100px;
+    top: 50px;
+    left: 35px;
+    background-color: transparent;
+}
+
+.players{
+    position: absolute;
+    width: 425px;
+    height: 80px;
+    top: 10px;
+    background-color: transparent;
+}
+
+#player-01{
+    left: 10px;
+}
+
+#player-02{
+    right: 10px;
+}
+
+.players-avatar-container{
+    position: absolute;
+    width:65px;
+    height: 65px;
+    border:  solid rgba(255,255,255,0) .5px;
+    box-shadow: inset 0 0 32px rgba(0,5,20,.5);
+    background-size: contain;
+    background-position: center;
+    background-color: #6c81a9;
+}
+
+.players-name{
+    position: absolute;
+    width: 300px;
+    height: 35px;
+    color: #a0999b;
+    font-family: 'Bree Serif', serif;
+    font-size: 25px;
+}
+
+label[id*=lbl_player-]{
+    position: absolute;
+    width: 300px;
+    height: 50px;
+    text-align: left;
+    /*color: yellow;*/
+}
+
+#lbl_player-02{
+    text-align: right;
+  right: 0px;
+}
+
+#player-01-name{
+    left: 75px;
+    text-align: left;
+}
+
+#player-02-name{
+    right: 75px;
+    text-align: right;
+}
+
+hr{
+    position: absolute;
+    width: 350px;
+    top: 40px;
+}
+
+#hr1{
+    left: 75px;
+    border-image:linear-gradient(to right,rgba(255,255,255,.3) 0,rgba(255,255,255,.3) 33%,rgba(255,255,255,.3) 66%,rgba(255,255,255,0) 100%) 1 stretch;
+}
+
+#hr2{
+    right: 75px;
+    border-image:linear-gradient(to right,rgba(255,255,255,0) 0,rgba(255,255,255,.3) 33%,rgba(255,255,255,.3) 66%,rgba(255,255,255,.3) 100%) 1 stretch;
+}
+
+#p02ac{
+    right: 0px;
+}
+
+.players-avatar{
+    position: absolute;
+    width:65px;
+    height: 65px;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAADFBMVEVMaXEAAAAJCQkyMjJnzcPAAAAABHRSTlMAYObP+Lsm8QAAANtJREFUeNrFl9Fqw1AMxWLp//95D2VmDG7IzqGr3qUa1yHkejPzItf9JtJZmFT3BRP5LhD4/gTmj76/ACtfgcxPFgFWhcEDDzfpOeCjAJ6AMiDdCqQO2AamC0D/L5YT+PFDnHYC5r8OqTsE2wCewTKg3QokCEQ76G7Z/nGm8m8KlG8mvZ7iewJYvl2ZqxoBrucM4QBLOsAyhAMsZaCfALvAED0Ii5wnKA7R6QJiG5hPB3Se6a6f7HEEz7CNs46aJla/BZj7X48Sq2eJYfUkMWtHiVDfTznWDwtgxRd3vhQHF/u3tAAAAABJRU5ErkJggg==);
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#player-01-avatar{
+    left: 0px;
+}
+
+#player-02-avatar{
+    right: 0px;
+}
+
